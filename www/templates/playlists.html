@@ -1,0 +1,64 @@
+<ion-view view-title="Accounts" >
+  <ion-content>
+
+
+  
+	<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" placeholder="Search">
+  </label>
+</div>
+
+    <ion-list>
+      
+
+
+  
+    list of innvoices
+      
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+       <ion-checkbox ng-model="filter.red">{{playlist.title}}</ion-checkbox> 
+      </ion-item>
+
+
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+
+
+
+    </ion-list>
+
+  </ion-content>
+
+
+
+<ion-footer-bar class="bar-subfooter bar-stable">
+<div class="buttons">
+<button class="button">SELECT ALL</button>
+</div>
+
+<h1 class="title"> </h1>
+
+<div class="buttons">
+<button class="button button-clear button-assertive">
+  Total: SR 000
+</button>
+</div>
+
+</ion-footer-bar>
+
+
+
+<div class="bar bar-footer bar-assertive">
+<div class="title">
+  <button class="button button-block button-clear">PAY</button>
+  </div>
+</div>
+
+
+
+   
+
+</ion-view>
