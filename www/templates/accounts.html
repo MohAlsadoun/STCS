@@ -1,12 +1,12 @@
-<ion-view view-title="Accounts" >
+<ion-view view-title="Accounts (REST API)" >
   <ion-content>
 
 
   
-	<div class="list list-inset">
+	 <div class="list list-inset">
   <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search">
+    <input type="number" placeholder="Search" ng-model="searchId.id">
   </label>
 </div>
 
@@ -14,19 +14,36 @@
       
 
 
-  
-    list of innvoices!
+  <div align="center">REST API</div>
+    
       
-      <ion-item ng-repeat="accounts in accountss" href="#/app/accountss/{{accounts.id}}">
-       <ion-checkbox ng-model="filter.red">{{accounts.title}}</ion-checkbox> 
+      <!-- <ion-item ng-repeat="account in accounts.records" href="#/app/accounts/{{account.id}}">
+       <ion-checkbox ng-model="filter.red">{{account.id}}</ion-checkbox> 
       </ion-item>
 
+ -->
 
-      <ion-item ng-repeat="accounts in accountss" href="#/app/accountss/{{accounts.id}}">
-        {{accounts.title}}
+<div class="card">
+  <div class="item item-text-wrap">
+  <!--  <ion-checkbox ng-model="filter.red"></ion-checkbox> -->
+<ion-item ng-repeat="account in accounts.records | filter:searchId"  href="#/app/accounts/{{account.id}}">
+       
+       <label class="checkbox">
+        <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+     </label>
+
+       <div><h1>{{account.id}}</h1></div>  
+       <div> Total Services:  <b>{{account.totalServ}}</b> <br> Total bill: SAR   <b>{{account.bill}}</b></div> 
+       
       </ion-item>
 
+  </div>
+</div>
 
+<!-- 
+      <ion-item ng-repeat="account in accounts.records" href="#/app/accounts/{{accounts.id}}">
+        {{account.bill}}
+      </ion-item> -->
 
     </ion-list>
 
@@ -43,7 +60,7 @@
 
 <div class="buttons">
 <button class="button button-clear button-assertive">
-  Total: SR 000
+  Total: SR {{ accounts.total }}
 </button>
 </div>
 

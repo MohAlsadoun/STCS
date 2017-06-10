@@ -6,27 +6,41 @@
 	<div class="list list-inset">
   <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search">
+    <input type="number" placeholder="Search" ng-model="searchId.id">
   </label>
 </div>
 
     <ion-list>
       
-
-
-  
-    list of innvoices
       
+      <!--
       <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
        <ion-checkbox ng-model="filter.red">{{playlist.title}}</ion-checkbox> 
       </ion-item>
+-->
 
 
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
+
+<div class="card">
+  <div class="item item-text-wrap">
+  <!--  <ion-checkbox ng-model="filter.red"></ion-checkbox>	-->
+<ion-item ng-repeat="playlist in playlists | filter:searchId"  href="#/app/playlists/{{playlist.id}}">
+       
+       <label class="checkbox">
+        <input type="checkbox" ng-click="clickItem(item); $event.stopPropagation();" ng-model="item.checked">
+     </label>
+
+       <div><h1>{{playlist.id}}</h1></div>  
+       <div> Total Services:  <b>{{playlist.totalServ}}</b> <br> Total bill: SAR   <b>{{playlist.bill}}</b></div> 
+       
       </ion-item>
 
+  </div>
+</div>
 
+     
+
+d
 
     </ion-list>
 
@@ -43,7 +57,7 @@
 
 <div class="buttons">
 <button class="button button-clear button-assertive">
-  Total: SR 000
+  Total: <!--{{ getTotal() }}--> SR 000
 </button>
 </div>
 
